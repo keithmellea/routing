@@ -9,9 +9,14 @@ app.get("/", (req, res) => {
     // console.log(req.method, req.path, Math.floor(Math.random()));
     });
 
-app.get("/\/\w*xyz$", (req, res) => {
+app.get(/\/[\w]*-?xyz$/, (req, res) => {
   res.send("That's all I wrote.");
 });
+
+app.get('/capital-letters/:name', (req, res) => {
+    // console.log(req)
+    res.send(req.params.name.toUpperCase())
+})
 
 app.all("/:id", (req, res) => {
 // res.send("Hello from Express!");
