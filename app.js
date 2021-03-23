@@ -9,14 +9,15 @@ app.get("/", (req, res) => {
     // console.log(req.method, req.path, Math.floor(Math.random()));
     });
 
+app.get("/\/\w*xyz$", (req, res) => {
+  res.send("That's all I wrote.");
+});
+
 app.all("/:id", (req, res) => {
 // res.send("Hello from Express!");
 res.render("index", {method: req.method, path: req.path, randomNumber: Math.floor(Math.random() * 10)})
 console.log(req.method, req.path, Math.floor(Math.random()));
 });
 
-// app.get("/", (req, res) => {
-//     // res.send
-// })
 
 app.listen(8081, () => console.log(`listening on port 8081`))
